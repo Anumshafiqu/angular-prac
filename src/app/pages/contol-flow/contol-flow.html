@@ -1,0 +1,82 @@
+<table class="mt-3">
+    <tr>
+
+        <td class="bg-primary text-white px-4 py-3 rounded">
+            @if(iParaVisible === true) {
+            this para is visible
+            } @else {
+            <span class="bg-primary text-white px-4 py-3 rounded">isParaVisible has false value</span>
+            }
+        </td>
+
+        <td>
+            <button class="btn btn-success" (click)="show()">Show</button>
+        </td>
+        <td>
+            <button class="btn btn-success" (click)="Hide()">Hide</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @if(isMonthVisible == 'jan') {
+            <span>JANUARY</span>
+
+            } @else if(isMonthVisible == 'feb') {
+            <span>Febrary</span>
+
+            } @else if(isMonthVisible == 'mar') {
+            <span>March</span>
+            } @else if(isMonthVisible == 'apr') {
+            <span>April</span>
+            } @else if(isMonthVisible == 'may') {
+            <span>May</span>
+            } @else {
+            <span>Wrong input</span>
+            }
+        </td>
+        <td>
+            <input type="text" class="form-control" [(ngModel)]="isMonthVisible">
+        </td>
+    </tr>
+    <tr>
+
+        <td>
+            <ul>
+                @for (item of cityList ; track $index) {
+                <li>{{item}}</li>
+                }
+
+            </ul>
+        </td>
+        <td>
+            <select name="" id="">
+            @for (item of cityList ; track $index) {
+                <option value="">{{item}}</option>
+            }
+            </select>
+        </td>
+
+
+
+    </tr>
+</table>
+
+<table class="table table-bordered text-center p-3">
+    <thead>
+        <th>Name</th>
+        <th>City</th>
+        <th>Status</th>
+    
+    </thead>
+    <tbody>
+    <!-- ngFor showmultiple data like array  -->
+@for ( item of studentList ; track $index){
+<tr>
+
+        <td>{{item.name}}</td>
+        <td>{{item.city}}</td>
+        <td>{{item.isactive}}</td>
+        </tr>
+}
+    </tbody>
+</table>

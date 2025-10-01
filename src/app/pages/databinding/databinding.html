@@ -1,0 +1,12 @@
+<h2>{{ title }}</h2> <!-- Interpolation -->
+
+<!-- Property Binding -->
+<input type="text" [placeholder]="placeholder" class="form-control w-25">
+
+<!-- Event Binding -->
+<p>Count: {{ count }}</p>
+<button (click)="increment()" class="btn btn-success my-2">Click Me</button>
+
+<!-- Two-way Binding (need FormsModule) -->
+<input type="text" [(ngModel)]="username" placeholder="Enter your name" class=" my-2 form-control w-25">
+<p>Hello {{username}}</p>

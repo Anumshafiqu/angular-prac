@@ -1,0 +1,27 @@
+
+<div class="row">
+    <div class="col-3">
+        <div class="p-3" [ngClass]="div1ClassName()">
+             Div 1  
+        </div>
+
+    </div>
+    <div class="col-3" >
+        <div class="p-3" [ngStyle]="{'background-color' : div2green == true ? 'red' : 'blue'}">
+            Div 2
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <div class="p-3">
+            <button class="btn btn-success mx-2" (click)="setBgDiv('bg-success')">Green</button>
+            <button class="btn btn-danger" (click)="setBgDiv('bg-danger')">Red</button>
+        </div>
+    </div>
+        <div class="col-3">
+        <div class="p-3">
+            <button class="btn btn-success" (click)="togglebutton()">toogle button</button>
+        </div>
+    </div>
+</div>

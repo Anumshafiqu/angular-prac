@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-8 table-responsive p-3">
+        <table class="table text-center">
+           <tr>
+            <th>Name</th>
+            <th>Website</th>
+            <th>email</th>
+            <th>username</th>
+
+           </tr>
+        </table>
+        <tbody>
+            @for(item of userlist ; track $index) {
+
+            
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.website}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.username}}</td>
+
+            </tr>
+        }
+        </tbody>
+    </div>
+
+    <div class="col-4 table-responsive">
+        <ul>
+            @for(item of todoList; track $index) {
+                <li>{{item.title}}</li>
+            }
+        </ul>
+    </div>
+            <!-- <div class="col-4 table-responsive">
+        <table class="table table-bordered text-center p-3 custom-table ">
+           <tr>
+            <th>userId</th>
+            <th>userName</th>
+            <th>emailId</th>
+            <th>roll</th>
+
+           </tr>
+        </table>
+        <tbody>
+            @for(item of busUserList ; track $index) {
+
+            
+            <tr>
+                <td>{{item.userId}}</td>
+                <td>{{item.userName}}</td>
+                <td>{{item.emailId}}</td>
+                <td>{{item.role}}</td>
+
+            </tr>
+        }
+        </tbody>
+    </div> -->
+</div>

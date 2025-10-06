@@ -25,3 +25,39 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-3">
+        FirstName => {{ FirstName}}
+        <br>
+        FirstName = > {{ FirstName | uppercase}}
+    </div>
+    <div class="col-3">
+        CourseName = > {{courseName}}
+        <br>
+        CourseName => {{courseName | lowercase}}
+    </div>
+    <div class="col-3">
+        StudentRollNo => {{StudentRollNo}}
+        <br>
+        StudentRollNo => {{StudentRollNo | slice : 0-3}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        StudentObj =>{{studentObg}}
+        <br>
+        sutdentObg => {{studentObg | json }}
+    </div>
+    <div class="col-3">
+        Date => {{currentDate }} 
+        <br> 
+        Date {{currentDate | date}}
+    </div>
+    <div class="col-3">
+        Date => {{currentDate | date : 'dd-MM-yy'}}
+        <br>
+        Date => {{currentDate | date : 'dd-MM-yyyy'}}
+        <br>
+        Date => {{currentDate | date : 'dd-MMMM-yy'}}
+    </div>
+</div>

@@ -1,12 +1,14 @@
+import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user',
-  imports: [HttpClientModule, FormsModule],
+  imports: [HttpClientModule, FormsModule , CommonModule  , ReactiveFormsModule],
   templateUrl: './user.html',
-  styleUrl: './user.css'
+  styleUrl: './user.css',
+  standalone : true,
 })
 export class User implements OnInit {
   ngOnInit(): void {

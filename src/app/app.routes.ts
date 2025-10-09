@@ -6,6 +6,8 @@ import { ContolFlow } from './pages/contol-flow/contol-flow';
 import { DirectiveAttr } from './pages/directive-attr/directive-attr';
 import { GetApi } from './get-api/get-api';
 import { User } from './pages/user/user';
+import { ReactiveForm } from './pages/reactive-form/reactive-form';
+import { Pipe } from './pages/pipe/pipe';
 
 export const routes: Routes = [
     {path : '' , component : Databinding} ,
@@ -14,5 +16,7 @@ export const routes: Routes = [
     {path : 'contol-flow' , component : ContolFlow},
     {path :'directive-attr' , component : DirectiveAttr},
     {path :'get-api' , component : GetApi},
-    {path: 'user' , component : User}
+    {path: 'user' , component : User},
+    {path :'reactive-form' , component : ReactiveForm},
+    {path : 'pipe' ,  component : Pipe}
 ];

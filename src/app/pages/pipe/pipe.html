@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-4">
+        {{CourseName}} <br>
+        Course name  =>{{CourseName | uppercase}}
+        {{CourseName}}<br>
+        CourseName => {{CourseName | lowercase}}
+        {{couseDuration}}<br>
+        couseDuration => {{couseDuration | titlecase}} 
+
+    </div>
+
+    <div class="col-4">
+        {{currentDate}}<br>
+        <p>CurrentDate {{currentDate | date}}</p>
+        <p>currentDate {{currentDate | date :'dd-mm-yy'}}</p>
+        <p>currentDate {{currentDate | date :'dd-MM-yyyy'}}</p>
+        <p>currentDate {{currentDate | date :'dd=MMM-yy'}}</p>
+        <p>CurrentDate {{currentDate | date :'dd-MMMM-yy'}}</p>
+    </div>
+    <div class="col-3">
+        <p>{{studentObj}}</p>
+        <p>studentObj {{studentObj | json}}</p>
+    </div>
+        <div class="col-3">
+        <p>{{studentArray}}</p>
+        <p>studentArray {{studentArray | slice : 0-3}}</p>
+    </div>
+            <div class="col-3">
+        <p>name {{studentObj.name | na}}</p>
+        <p>Email {{studentObj.email | na}}</p>
+    </div>
+
+</div>

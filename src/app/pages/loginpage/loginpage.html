@@ -1,0 +1,39 @@
+<div class="login-wrapper">
+  <div class="login-box">
+    <h2 class="title">Welcome Back 👋</h2>
+    <p class="subtitle">Please sign in to your account</p>
+
+    <form [formGroup]="loginPage">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="EmailId"
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="Password"
+          placeholder="Enter your password"
+          required
+        />
+      </div>
+
+      <button type="button" class="btn-login" (click)="onLogin()">Login</button>
+
+      <div class="extra">
+        <p>
+          Don’t have an account?
+          <a href="#">Sign Up</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

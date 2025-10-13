@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
+import { Master } from '../services/master';
+import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-user',
@@ -12,9 +14,13 @@ import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 })
 export class User implements OnInit {
   ngOnInit(): void {
-    this.getuser()
+    this.getUsers();
+    const result  = this.masterService.getSum(12,50);
+    const appData = this.masterService.appName;
+
   }
   http = inject(HttpClient);
+  masterService = inject(Master);
   userList: any[] = [];
   userObj: any = {
     "userId": 0,
@@ -23,10 +29,16 @@ export class User implements OnInit {
     "fullName": "",
     "mobileNo": ""
   }
-  getuser() {
-    this.http.get("https://api.freeprojectapi.com/api/GoalTracker/getAllUsers").subscribe((res: any) => {
-      this.userList = res;
-    })
+  getUsers() {
+    this.masterService.getUsers().subscribe({
+      next: (res: any) => {
+        console.log('✅ Users loaded:', res);
+        this.userList = res;
+      },
+      error: (err) => {
+        console.error('❌ Error fetching users:', err);
+      }
+    });
   }
   // onDelete(item: number) {
   //   const isDelete = confirm("are you sure you want to delete");
@@ -51,12 +63,12 @@ export class User implements OnInit {
       ).subscribe({
         next: () => {
           alert('User deleted successfully');
-          this.getuser();
+          this.getUsers();
         },
         error: () => {
           alert('Error deleting user');
         }
-      });
+      })
     }
   }
   onResetUser() {
@@ -71,7 +83,7 @@ export class User implements OnInit {
   onsaveUser() {
     this.http.post("https://api.freeprojectapi.com/api/GoalTracker/register", this.userObj).subscribe({
       next: (Result) => {
-        this.getuser();
+        this.getUsers();
         alert("user success created")
       },
       error: (error) => {
@@ -85,7 +97,7 @@ export class User implements OnInit {
   onUpdateUser() {
     this.http.put("https://api.freeprojectapi.com/api/GoalTracker/updateUser?id=" + this.userObj.userId, this.userObj).subscribe({
       next: () => {
-        this.getuser();
+        this.getUsers();
         alert("user success created")
 
       },

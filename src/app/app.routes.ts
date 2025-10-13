@@ -8,8 +8,15 @@ import { GetApi } from './get-api/get-api';
 import { User } from './pages/user/user';
 import { ReactiveForm } from './pages/reactive-form/reactive-form';
 import { Pipe } from './pages/pipe/pipe';
+import { Resourceapi } from './pages/resourceapi/resourceapi';
+import { Login } from './pages/login/login';
+import { Layout } from './pages/layout/layout';
+import { Loginpage } from './pages/loginpage/loginpage';
 
 export const routes: Routes = [
+    {path : '', redirectTo : 'loginpage' , pathMatch : 'full'},
+    {path : 'login' , component : Loginpage },
+    {path : '' , component : Layout , children : [
     {path : '' , component : Databinding} ,
     {path : 'databinding' , component : Databinding},
     {path : 'signal' , component : Signal},
@@ -18,5 +25,9 @@ export const routes: Routes = [
     {path :'get-api' , component : GetApi},
     {path: 'user' , component : User},
     {path :'reactive-form' , component : ReactiveForm},
-    {path : 'pipe' ,  component : Pipe}
+    {path : 'pipe' ,  component : Pipe},
+    {path : 'resourceapi' , component : Resourceapi}
+    ]},
+
+
 ];

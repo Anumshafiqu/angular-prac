@@ -1,36 +1,46 @@
-<nav class="navbar navbar-expand bg-dark navbar-dark">
+<!-- <nav class="navbar navbar-expand bg-dark navbar-dark">
   <div class="container-fluid">
-    <!-- Brand -->
     <a class="navbar-brand" href="#">MyApp</a>
-
-    <!-- Menu Items -->
     <ul class="navbar-nav d-flex flex-row">
       <li class="nav-item">
         <a class="nav-link fs-6" routerLink="/databinding">databinding</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link fs-6" routerLink="signal">signal</a>
+        <a class="nav-link fs-6" routerLink="/signal">signal</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link fs-6" routerLink="contol-flow">control-flow</a>
+        <a class="nav-link fs-6" routerLink="/contol-flow">control-flow</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link fs-6" routerLink="directive-attr">directive-attr</a>
+        <a class="nav-link fs-6" routerLink="/directive-attr">directive-attr</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link fs-6" routerLink="get-api">get-api</a>
+        <a class="nav-link fs-6" routerLink="/get-api">get-api</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link fs-6" routerLink="user">user</a>
+        <a class="nav-link fs-6" routerLink="/user">user</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link fs-6" routerLink="reactive-form">reactive-form</a>
+        <a class="nav-link fs-6" routerLink="/reactive-form">reactive-form</a>
       </li>
             <li class="nav-item">
-        <a class="nav-link fs-6" routerLink="pipe">pipe</a>
+        <a class="nav-link fs-6" routerLink="/pipe">pipe</a>
       </li>
+                  <li class="nav-item">
+        <a class="nav-link fs-6" routerLink="/resourceapi">Resource-api</a>
+      </li>
+      <div class="d-flex">
+         @if(loggedUserName != '') {
+<button class="btn btn-success" routerLink="/login">Login</button>
+         } @else {
+<button class="btn btn-success">{{loggedUserName}}</button>
+        <button class="btn btn-success" (click)="logoff()">Logoff</button>
+         }
+        
+        
+      </div>
     </ul>
   </div>
-</nav>
+</nav> -->
 
 <router-outlet></router-outlet>

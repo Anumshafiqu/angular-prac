@@ -11,26 +11,28 @@ import { Router } from '@angular/router';
 })
 export class Loginpage {
   router = inject(Router)
-loginPage : FormGroup = new FormGroup({
-  EmailId : new FormControl(),
-  Password : new FormControl(),
-})
-http = inject(HttpClient);
+  loginPage: FormGroup = new FormGroup({
+    EmailId: new FormControl(),
+    Password: new FormControl(),
+  })
+  http = inject(HttpClient);
 onLogin() {
   const formValue = this.loginPage.value;
-this.http.post("https://freeapi.miniprojectideas.com/api/User/Login" , formValue).subscribe({
-  next:(response:any)=>{
-    if(response.result) {
-      alert("login success");
-      this.router.navigateByUrl("/databinding")
-    }else{
-      alert(response.message)
-    }
 
-  },
-  error:(error:any)=>{
-    alert(error.error)
-  }
-})
+  this.http.post("https://freeapi.miniprojectideas.com/api/User/Login", formValue)
+    .subscribe({
+      next: (response: any) => {
+          localStorage.setItem('angular20token', response.data.token);
+          alert("Login success");
+          this.router.navigateByUrl("/databinding");
+
+      },
+      error: (err: any) => {
+        console.error("Login error:", err);
+        alert("Login failed");
+      }
+    });
 }
+
+
 }

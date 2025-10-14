@@ -12,22 +12,47 @@ import { Resourceapi } from './pages/resourceapi/resourceapi';
 import { Login } from './pages/login/login';
 import { Layout } from './pages/layout/layout';
 import { Loginpage } from './pages/loginpage/loginpage';
+import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
-    {path : '', redirectTo : 'loginpage' , pathMatch : 'full'},
-    {path : 'login' , component : Loginpage },
-    {path : '' , component : Layout , children : [
-    {path : '' , component : Databinding} ,
-    {path : 'databinding' , component : Databinding},
-    {path : 'signal' , component : Signal},
-    {path : 'contol-flow' , component : ContolFlow},
-    {path :'directive-attr' , component : DirectiveAttr},
-    {path :'get-api' , component : GetApi},
-    {path: 'user' , component : User},
-    {path :'reactive-form' , component : ReactiveForm},
-    {path : 'pipe' ,  component : Pipe},
-    {path : 'resourceapi' , component : Resourceapi}
-    ]},
+    // {path : '', redirectTo : 'loginpage' , pathMatch : 'full'},
+    // {path : 'loginpage' , component : Loginpage },
+    // {path : '' , component : Layout ,
+    //     children : [
+    // {path : '' , component : Databinding} ,
+    // {path : 'databinding' , component : Databinding},
+    // {path : 'signal' , component : Signal},
+    // {path : 'contol-flow' , component : ContolFlow},
+    // {path :'directive-attr' , component : DirectiveAttr},
+    // {path :'get-api' , component : GetApi},
+    // {path: 'user' , component : User},
+    // {path :'reactive-form' , component : ReactiveForm},
+    // {path : 'pipe' ,  component : Pipe},
+    // {path : 'resourceapi' , component : Resourceapi}
+    // ]},
 
+  // public
+    {path : '', redirectTo : 'loginpage' , pathMatch : 'full'},
+    {path : 'loginpage' , component : Loginpage },
+  {
+    path: '',
+    component: Layout,
+    canActivateChild: [authGuard], // protect all children
+    children: [
+      { path: '', redirectTo: 'databinding', pathMatch: 'full' },
+      { path: 'databinding', component: Databinding },
+      { path: 'signal', component: Signal },
+      { path: 'contol-flow', component: ContolFlow },
+      { path: 'directive-attr', component: DirectiveAttr },
+      { path: 'get-api', component: GetApi },
+      { path: 'user', component: User },
+      { path: 'reactive-form', component: ReactiveForm },
+      { path: 'pipe', component: Pipe },
+      { path: 'resourceapi', component: Resourceapi }
+    ]
+  },
+
+  // fallback
+  { path: '**', redirectTo: 'loginpage' }
 
 ];

@@ -33,11 +33,11 @@
                 <a class="nav-link fs-6" routerLink="/resourceapi">Resource-api</a>
             </li>
             <div class="d-flex">
-                @if(loggedUserName != '') {
-                <button class="btn btn-success" routerLink="/loginpage">Login</button>
-                } @else {
+                <!-- @if(loggedUserName != '') { -->
+                <!-- <button class="btn btn-success" routerLink="/loginpage">Login</button> -->
+                <!-- } @else { -->
                 <button class="btn btn-success" (click)="logoff()">Logoff</button>
-                }
+                <!-- } -->
 
 
             </div>

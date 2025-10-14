@@ -21,27 +21,27 @@ export class Layout {
       { label: 'Contact', icon: 'pi pi-envelope', routerLink: '/contact' },
     ]
   }
-  loggedUserName = '' ;
-  constructor(private masterService : Master) {
-    this.readLoggedData();
-    this.masterService.onLogin.subscribe(res =>{
-      this.readLoggedData();
+//   loggedUserName = '' ;
+//   constructor(private masterService : Master) {
+//     this.readLoggedData();
+//     this.masterService.onLogin.subscribe(res =>{
+//       this.readLoggedData();
 
-    })
+//     })
     
 
-  }
-readLoggedData() {
-  const loggedData = localStorage.getItem('angular20use');
-  if (loggedData !== null) {
-    this.loggedUserName = loggedData;
-  } else {
-    this.loggedUserName = ''; // or any default value
-  }
-}
+//   }
+// readLoggedData() {
+//   const loggedData = localStorage.getItem('angular20use');
+//   if (loggedData !== null) {
+//     this.loggedUserName = loggedData;
+//   } else {
+//     this.loggedUserName = ''; // or any default value
+//   }
+// }
 logoff() {
   localStorage.removeItem('angular20use')
-  this.readLoggedData();
-  this.router.navigateByUrl('/login')
+  // this.readLoggedData();
+  this.router.navigateByUrl('/loginpage')
 }
 }

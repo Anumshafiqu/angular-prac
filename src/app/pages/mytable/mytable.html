@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-8 p-3">
+        <table class="table table-responsive">
+           <tr>
+            <!-- <th>Name</th>
+            <th>Website</th> -->
+            <th>email</th>
+            <th>username</th>
+            @if(neddActionBtn == true) {
+                <th>Actions</th>
+            }
+
+           </tr>
+        </table>
+        <tbody class="p-2">
+           
+            @for(item of gridData ; track $index) {
+                <tr>
+                <td>{{$index + 1}}</td>
+             @for(col of colArray ; track $index) {
+               <td>{{item[col]}}</td>
+             }
+              @if(neddActionBtn == true) {
+  <td>
+                <button class="btn btn-success" (click)="editRecord(item)">edit</button>
+                <button class="btn btn-danger" (click)="deleteRecord(item)">delete</button>
+
+             </td>
+              }
+           
+             </tr>
+            }
+            
+
+            <!-- @for(item of userlist ; track $index) {
+
+            
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.website}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.username}}</td>
+
+            </tr>
+        } -->
+        </tbody>
+    </div>
+</div>

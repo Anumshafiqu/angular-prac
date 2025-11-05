@@ -1,6 +1,11 @@
 <div class="row">
     <div class="col-8 table-responsive p-3">
-        <table class="table text-center">
+<app-mytable [colArray]="[ 'email' , 'Name' , 'username']" [gridData]="userlist"
+(onEdit)="onUserEdit($event)" (onDelete)="onUserDelete($event)" [neddActionBtn] ='true'
+></app-mytable>
+
+
+        <!-- <table class="table text-center">
            <tr>
             <th>Name</th>
             <th>Website</th>
@@ -8,7 +13,6 @@
             <th>username</th>
 
            </tr>
-        </table>
         <tbody>
             @for(item of userlist ; track $index) {
 
@@ -22,6 +26,7 @@
             </tr>
         }
         </tbody>
+        </table> -->
     </div>
 
     <div class="col-4 table-responsive">

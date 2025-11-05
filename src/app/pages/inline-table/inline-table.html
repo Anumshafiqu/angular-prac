@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col-12 text-end">
+        <button class="btn btn-success" (click)="addNew()">Add new</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>userId</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                    <th>Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @for(item of postsList ; track $index) {
+                <tr>
+                    <td>
+                        @if(item.isEditable) {
+                        <input type="text" name="id" class="form-control" [(ngModel)]="item.id">
+                        } @else {
+                        {{item.id}}
+                        }
+
+                    </td>
+                    <td>
+                        @if(item.isEditable) {
+                        <input type="text" name="id" class="form-control" [(ngModel)]="item.userId">
+                        } @else {
+                        {{item.userId}}
+                        }
+                    </td>
+                    <td>
+                        @if(item.isEditable) {
+                        <input type="text" name="id" class="form-control" [(ngModel)]="item.title">
+                        } @else {
+                        {{item.title}}
+                        }
+                    </td>
+                    <td class="textarea">
+                        @if(item.isEditable) {
+                        <input type="text" name="id" class="form-control" [(ngModel)]="item.body">
+                        } @else {
+                        {{item.body}}
+                        }
+                    </td>
+                    <td>
+                        @if(item.isEditable) {
+                        @if(item.id == 0 ) {
+                        <button class="btn btn-success my-2"(click)="saveRow(item)">Save</button>
+                        } @else {
+                        <button class="btn btn-warning my-2">update</button>
+                        }
+
+                        <button class="btn btn-success" (click)="cancelrow(item)">Cancel</button>
+                        } @else {
+                        <button class="btn btn-primary my-2" (click)="onedit(item)">edit</button>
+                        <button class="btn btn-danger">Delete</button>
+                        }
+
+                    </td>
+
+                </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+</div>

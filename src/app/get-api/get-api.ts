@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
+import { Mytable } from '../pages/mytable/mytable';
 
 @Component({
   selector: 'app-get-api',
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule , Mytable],
   templateUrl: './get-api.html',
   styleUrl: './get-api.css',
   standalone: true,
@@ -23,6 +24,14 @@ export class GetApi {
     this.http.get("https://jsonplaceholder.typicode.com/users").subscribe((res: any) => {
       this.userlist = res
     })
+
+  } 
+  onUserEdit(userData:any) {
+    debugger;
+
+  }
+  onUserDelete(userData:any) {
+    debugger;
 
   }
   getTodoApi() {

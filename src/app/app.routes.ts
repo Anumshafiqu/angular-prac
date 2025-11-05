@@ -13,6 +13,7 @@ import { Login } from './pages/login/login';
 import { Layout } from './pages/layout/layout';
 import { Loginpage } from './pages/loginpage/loginpage';
 import { authGuard } from './guards/auth-guard';
+import { InlineTable } from './pages/inline-table/inline-table';
 
 export const routes: Routes = [
     // {path : '', redirectTo : 'loginpage' , pathMatch : 'full'},
@@ -48,7 +49,9 @@ export const routes: Routes = [
       { path: 'user', component: User },
       { path: 'reactive-form', component: ReactiveForm },
       { path: 'pipe', component: Pipe },
-      { path: 'resourceapi', component: Resourceapi }
+      { path: 'resourceapi', component: Resourceapi },
+      { path: 'inline-table', component: InlineTable },
+      
     ]
   },
 

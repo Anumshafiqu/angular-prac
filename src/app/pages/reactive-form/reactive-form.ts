@@ -2,10 +2,11 @@ import { NgIf } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Mytable } from '../mytable/mytable';
 
 @Component({
   selector: 'app-reactive-form',
-  imports: [FormsModule , ReactiveFormsModule , HttpClientModule ],
+  imports: [FormsModule , ReactiveFormsModule , HttpClientModule , Mytable],
   templateUrl: './reactive-form.html',
   styleUrl: './reactive-form.css',
   standalone: true,
@@ -15,6 +16,7 @@ export class ReactiveForm {
     this.getuser()
   }
   http = inject(HttpClient);
+  colList  : any[] = ['emailId' , 'password' , 'fullName' , 'mobileNo'];
   userList: any[] = [];
   getuser() {
     this.http.get("https://api.freeprojectapi.com/api/GoalTracker/getAllUsers").subscribe((res: any) => {
